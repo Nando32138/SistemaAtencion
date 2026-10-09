@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Turnos - Atención Estudiantil</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sistema de Atención Estudiantil</h1>
+
+        <!-- Formulario para Registrar Estudiante -->
+        <section class="card">
+            <h2>1. Registrar Nuevo Estudiante (Cola)</h2>
+            <form id="formRegistro">
+                <input type="text" id="codigo" placeholder="Código Universitario / DNI" required>
+                <input type="text" id="nombre" placeholder="Nombre completo" required>
+                <select id="tramite" required>
+                    <option value="">Seleccione Trámite...</option>
+                    <option value="Matrícula">Matrícula</option>
+                    <option value="Trámites Académicos">Trámites Académicos</option>
+                    <option value="Biblioteca">Biblioteca</option>
+                </select>
+                <button type="submit">Generar Turno</button>
+            </form>
+        </section>
+
+        <!-- Sección de Control de Atención -->
+        <section class="card">
+            <h2>2. Control de Atención</h2>
+            <div class="actions">
+                <button id="btnAtender" class="btn-primary">Atender Siguiente Turno</button>
+                <button id="btnDeshacer" class="btn-warning">Deshacer / Revertir Última Atención (Pila)</button>
+            </div>
+            <div id="turnoActual" class="info-box">
+                <strong>Turno en atención:</strong> Ninguno
+            </div>
+        </section>
+
+        <!-- Búsqueda -->
+        <section class="card">
+            <h2>3. Búsqueda de Estudiante (Búsqueda Lineal)</h2>
+            <div class="search-box">
+                <input type="text" id="inputBuscar" placeholder="Ingrese Código o DNI para buscar">
+                <button id="btnBuscar">Buscar</button>
+            </div>
+            <div id="resultadoBusqueda" class="info-box"></div>
+        </section>
+
+        <!-- Listas y Contenedores de Información -->
+        <div class="grid">
+            <!-- Lista Enlazada: Registros del día -->
+            <section class="card">
+                <h2>Lista General del Día (Lista Enlazada)</h2>
+                <ul id="listaGeneral" class="list"></ul>
+            </section>
+
+            <!-- Pila: Historial de Atendidos -->
+            <section class="card">
+                <h2>Historial de Atendidos (Pila - Stack)</h2>
+                <ul id="historialPila" class="list"></ul>
+            </section>
+        </div>
+    </div>
+
+    <!-- Vinculación del script del sistema -->
+    <script src="SistemaAtencion.js"></script>
+</body>
+</html>
